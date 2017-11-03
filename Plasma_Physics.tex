@@ -1,0 +1,283 @@
+\documentclass[UTF8]{article}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{bm}
+\allowdisplaybreaks
+\numberwithin{equation}{subsubsection}
+\begin{document}
+\title{等离子体物理读书笔记}
+\author{蒋文杰}
+\maketitle
+\section{单粒子运动}
+\subsection{导向中心偏移}
+\subsubsection{一般理论}
+\begin{flushleft}
+ 有外力场存在时，忽略单粒子的回转运动，有动力学方程
+ \begin{flalign}
+  &&&\bm{F}+q\bm{v}\times \bm{B}=0&\\
+  &\Rightarrow&&\bm{F}\times \bm{B}=q\bm{B}\times(\bm{v}\times
+  \bm{B})&\\
+  &\Rightarrow&& \bm{F}\times
+  \bm{B}=q[\bm{v}B^2-\bm{B}(\bm{v}\cdot\bm{B})]&\\
+  &\Rightarrow&& {\bm{v}}_{\bot}=\frac{1}{q}\cdot
+  \frac{\bm{F}\times\bm{B}}{B^2}&
+ \end{flalign}
+\end{flushleft}
+\subsubsection{特定外场}
+\begin{flushleft}
+ 在以下外场中
+ \begin{flalign}
+  &\text{静电场}&&\bm{v}_E=\frac{\bm{E}\times\bm{B}}{B^2}&\\
+  &\text{重力场}&&\bm{v}_g=\frac{m}{q}\cdot\frac{\bm{g}\times\bm{B}}{B^2}&\\
+  &\text{非均匀电场}&&\bm{v}_E=(1+\frac{1}{4}r_L^2\nabla^2)\frac{\bm{E}\times\bm{B}}{B^2}&\\
+  &\text{梯度$\bm{B}$漂移}&&\bm{v}_{\nabla B}=\pm\frac{1}{2}v_\bot
+  r_L\frac{\bm{B}\times\nabla B}{B^2}&\\
+  &\text{曲率漂移}&&\bm{v}_R=\frac{mv_\|^2}{q}\frac{\bm{R_c}\times\bm{B}}{B^2}&\\
+  &\text{极化漂移}&&\bm{v}_p=\pm\frac{1}{\omega_cB}\frac{d\bm{E}}{dt}&
+ \end{flalign}
+\end{flushleft}
+\subsection{磁镜}
+\begin{flushleft}
+ 假设存在这样的半无限长磁场：柱坐标中，磁场$\bm{B}$主要沿$z$向，且轴对称，即是与$\varphi$无关，磁力线均匀收缩。
+ \begin{flalign}
+  &\text{由于}&&\nabla\cdot\bm{B}=0&\\
+  &\Rightarrow&&\frac{1}{r}\frac{\partial}{\partial
+   r}(rB_r)+\frac{\partial B_z}{\partial z}=0 &\\
+  &\Rightarrow&& B_r=-\frac{1}{2}r\frac{\partial B_z}{\partial z}&\\
+  &\Rightarrow&& F_r=q(v_\varphi B_z-v_zB_\varphi)=qv_\varphi B_z&\\
+  &&&F_\varphi=q(v_zB_r-v_rB_z)&\\
+  &&&F_z=q(v_rB_\varphi-v_\varphi B_r)=-v_\varphi B_r&
+ \end{flalign}
+ 逐项分析，$F_r$项给出了拉莫尔回旋；$F_\varphi$项给出了导向中心的径向漂移；对于最关键的$F_z$项
+ \begin{equation}
+  \begin{split}
+   \bar F_z&=-v_\varphi B_r\\
+   &=\displaystyle\frac{1}{2}qv_\bot r_c\frac{\partial B_z}{\partial
+    z}\\
+   &=-\frac{1}{2}\frac{mv_\bot^2}{B}\frac{\partial B_z}{\partial z}
+  \end{split}
+ \end{equation}
+ 由磁矩定义$\displaystyle\mu=\frac{1}{2}\frac{mv_\bot^2}{B}$, 可有
+ \begin{equation}
+  \bar F_z=-\mu \frac{\partial B_z}{\partial z}
+ \end{equation}
+ 磁场$\bm{B}$沿$z$向增大，从而$z$向动量减小。若强磁场处$\bm{B_m}$足够大，一般的带电粒子将在集束处附近镜射，从而被限制在弱磁场处。\\
+ 对于$\mu=0$的粒子，$F_z=0$，故镜射不发生；对于非无限场，若最弱磁场$\bm{B_{mid}}=\bm{B_0},\bm{v_\bot}=\bm{v_{\bot
+     0}},\bm{v_\|=v_{\|0}}$，可有
+ \begin{flalign}
+  &\text{能量守恒}&&v_\bot^2+v_\|^2=v_{\bot0}^2+v_{\|0}^2&\\
+  &\text{发生镜射$v_\|=0$}&&v_\bot'^2=v_{\bot0}^2+v_{\|0}^2=v_0^2&\\
+  &\text{由$\mu$不变}&&\frac{v_\bot'^2}{B'}=\frac{v_{\bot0}^2}{B_0}&
+ \end{flalign}
+ 从而得到$\bm{B_m}$限制条件
+ \begin{flalign}
+  &&&B_m\ge
+  B'=\frac{v_0^2}{v_{\bot0}^2}B_0=\frac{B_0}{sin^2\theta_0}&
+ \end{flalign}
+ $\theta$是$v_0$与$v_\|$夹角。即速度空间中存在俯仰角为$\displaystyle\theta_0=arc\tan\frac{v_{\bot0}}{v_{\|0}}$的圆锥，其中的粒子不受磁镜约束，可以从集束处泄露。
+\end{flushleft}
+\newpage
+
+\section{等离子体运动}
+\subsection{流体方程}
+\begin{flushleft}
+ 对于流体有定体运动方程
+ \begin{equation}
+  \rho[\frac{\partial\bm{u}}{\partial t}+(\bm{u}\cdot\nabla)\bm{u}]=\bm{f}-\nabla\cdot\bm{P}
+ \end{equation}
+ 在等离子流体中，$bm{f}=q(\bm{E}+\bm{u}\times\bm{B})$.
+\end{flushleft}
+\subsubsection{等离子流体压力张量}
+\begin{flushleft}
+ 考虑流体微元，$x$正向动量变化
+ \begin{flalign}
+  &\text{在$x^-$处}&&\displaystyle
+  p_{x^-}^+=\frac{1}{2}m(n\overline{v_x^2})|_{x^-}dydx&\\
+  &\text{在$x^+$处}&&\displaystyle
+  p_{x^+}^-=-\frac{1}{2}m(n\overline{v_x^2})|_{x^+}dydx&
+ \end{flalign}
+ 并考虑$x$负向动量变化，从而流体微元动量增加
+ \begin{equation}
+  \begin{split}
+   \displaystyle \Delta p_x&=p_{x^-}^++p_{x^+}^-+p_{x^-}^-+p_{x^+}^+\\&=m\frac{\partial (n\overline{v_x^2})}{\partial x}dxdydx
+  \end{split}
+ \end{equation}
+ 考虑到流体运动与流体微元的热运动
+ \begin{flalign}
+  &\text{流体微元速度}&&\bm{u}_x=\bm{u}_0+\bm{u}_e&\\
+  &\Rightarrow\
+  &&\overline{u_x^2}=\overline{u_0^2}+\overline{u_e^2}+2\bar{u_x}\bar{u_e}&\\
+  &\text{考虑质心系速度合成}&&\bar{u_x}\bar{u_e}=0&\\
+  &\text{考虑热运动速度分布}&&\frac{1}{2}m\overline{u_e^2}=\frac{1}{2}KT&\\
+  &\text{从而有}&&\frac{\partial}{\partial
+   t}(nmu_x)=-m\frac{\partial}{\partial
+   x}[n(\overline{u_0^2}+\frac{KT}{m})]&\\
+  &\text{考虑连续性方程}&&\frac{\partial n}{\partial
+   t}+\frac{\partial}{\partial x}(nu_x)=0&
+ \end{flalign}
+ \begin{flalign}
+  &\text{可有方程}&&mn(\frac{\partial u_x}{\partial t}+u_x\frac{\partial
+   u_x}{\partial x})=-\frac{\partial (nKT)}{\partial x}&
+ \end{flalign}
+ 考虑等离子体中粒子数密度与温度的各项异性，分别用矢量 $\bm{n}, \bm{T}$ 表示，其中每一项表明该点处不同方向的物理数值。可以证明，在旋转变化中，满足 $n'^i=R_j^in_j, T'^i=R_j^iT_j$, 从而满足矢量的数学定义。\\
+ 从而压力张量可以表示为矢量 $\bm{n}, \bm{T}$ 的并矢
+ \begin{equation}
+  \bm{P}=K\bm{n}\bm{T}
+ \end{equation}
+ 拓展到三维空间得到等离子体运动方程
+ \begin{equation}
+  mn[\frac{\partial\bm{u}}{\partial
+   t}+(\bm{u}\cdot\nabla)\bm{u}]=qn(\bm{E}+\bm{u}\times\bm{B})-\nabla\cdot\bm{P}
+ \end{equation}
+\end{flushleft}
+\subsubsection{流体方程组}
+\begin{flushleft}
+ 在高斯单位制下：
+ \begin{flalign}
+  &\text{电荷密度}&&\rho=n_iq_i+n_eq_e&\\
+  &\text{电流密度}&&\bm{j}=n_iq_i\bm{v}_i+n_eq_e\bm{v}_e&
+ \end{flalign}
+ 从而完整的等离子体流体方程组
+ \begin{flalign}
+  &&&\nabla\cdot\bm{E}=4(\pi n_iq_i+n_eq_e)&\\
+  &&&\nabla\times\bm{E}=-\frac{\partial\bm{B}}{\partial t}&\\
+  &&&\nabla\cdot\bm{B}=0&\\
+  &&&c^2\nabla\times\bm{B}=4\pi(n_iq_i\bm{v}_i+n_eq_e\bm{v}_e)+\frac{\partial\bm{E}}{\partial
+   t}&\\
+  &&&mn[\frac{\partial\bm{u}}{\partial
+   t}+(\bm{u}\cdot\nabla)\bm{u}]=qn(\bm{E}+\bm{u}\times\bm{B})-\nabla\cdot\bm{P}&\\
+  &&&\frac{\partial n_j}{\partial t}+\nabla\cdot(n_j\bm{u})=0\quad
+  (n=n_i, n_e)&\\
+  &&&p_j=C(m_jn_j)^\gamma\quad (n_j=n_i, n_e)&
+ \end{flalign}
+\end{flushleft}
+\subsection{流体漂移}
+\subsubsection{垂直磁场流体漂移}
+\begin{flushleft}
+ 在等离子体流体中
+ \begin{flalign}
+  &\text{流体运动方程}&&mn[\frac{\partial\bm{u}}{\partial
+   t}+(\bm{u}\cdot\nabla)
+  \bm{u}]=qn(\bm{E}+\bm{u}\times\bm{B})-\nabla\cdot\bm{P}&\\
+  &\text{由于比例关系}&&\mid\frac{mn\frac{d\bm{u}}{dt}}{q\bm{v}\times\bm{B}}\mid=
+  \frac{\omega}{\omega_c}\approx\varepsilon\ll 1&\\
+  &\Rightarrow&&0=qn(\bm{E}+\bm{u}\times\bm{B})-\nabla\cdot\bm{P}&\\
+  &\text{右乘磁感应强度}&&0=qn(\bm{E}\times\bm{B}+(\bm{u}\times\bm{B})
+  \times\bm{B}-\nabla\cdot\bm{P}\times\bm{B}&\\
+  &\text{可有垂直磁场速度}&&v_\pm=\frac{\bm{E}\times\bm{B}}{B^2}-\frac{(\nabla\cdot\bm{P})\times\bm{B}}{qnB^2}&\\
+  &\text{其中}&&v_E=\frac{\bm{E}\times\bm{B}}{B^2}&\\
+  &&&v_D=\frac{(\nabla\cdot\bm{P})\times\bm{B}}{qnB^2}&
+ \end{flalign}
+\end{flushleft}
+\subsubsection{平行磁场流体漂移}
+\begin{flushleft}
+ 在等离子体流体中
+ \begin{flalign}
+  &\text{流体运动方程$z$分量}&&mn[\frac{\partial\bm{u}_z}{\partial
+   t}+(\bm{u}\cdot\nabla)
+  \bm{u}_z]=qn\bm{E}_z-\frac{\partial P_{iz}}{\partial r_i}\\
+  &\text{由状态方程得}&&\frac{\partial\bm{u}_z}{\partial
+   t}=\frac{q}{m}E_z-\frac{\gamma KT}{mn}\frac{\partial n}{\partial
+   z}&
+ \end{flalign}
+ 考虑到$m\rightarrow 0, \bm{E}=-\nabla\phi$
+ \begin{equation}
+  qE_z=e\frac{\partial\phi}{\partial z}=\frac{\gamma
+   KT}{mn}\frac{\partial n}{\partial z}
+ \end{equation}
+ 进一步的，考虑电子等温且$\gamma=1$
+ \begin{gather}
+  n=n_0e^{{e\phi}/{KT_e}}\\
+  \sigma=\bm{A}\times\alpha
+ \end{gather}
+\end{flushleft}
+\newpage
+
+\section{等离子体流体中的波}
+\subsection{一般理论}
+\begin{flushleft}
+ 对于等离子流体有运动方程
+ \begin{equation}
+  mn[\frac{\partial\bm{u}}{\partial
+   t}+(\bm{u}\cdot\nabla)\bm{u}]=qn(\bm{E}+\bm{u}\times\bm{B})-\nabla\cdot\bm{P}
+ \end{equation}
+ 对于特殊的情况，可以解出流体的周期运动，从而形成周期场，形成电磁波的传输。
+\end{flushleft}
+\subsection{等离子体静电波}
+\subsubsection{电子波}
+\begin{flushleft}
+ 考虑在重离子本体坐标系有如下近似
+ \begin{enumerate}
+  \item{}由于电子运动范围较小，忽略磁场作用。
+        \begin{flalign*}
+         &&&\nabla\times\bm{E}=0&\\
+         &&&\nabla\cdot\bm{B}=0&\\
+         &&&\nabla\times\bm{B}=0&
+        \end{flalign*}
+  \item{}由于重离子本体坐标系，忽略热运动。\\$kT=0$
+  \item{}等离子体无限体积，从而忽略离子分布差异。
+  \item{}电子运动方向相同，取为$x$方向。$\bm{E}=E\bm{\hat{r_1}}$
+ \end{enumerate}
+ 从而可有方程组描述
+ \begin{equation}
+  \begin{cases}
+   \displaystyle mn_e[\frac{\partial\bm{v}_e}{\partial t}+(\bm{v}_e\cdot\nabla)\bm{v}_e]=-en_e\bm{E} \\
+   \displaystyle\frac{\partial n_e}{\partial t}+\nabla\cdot(n_e\bm{v}_e)=0                           \\
+   \displaystyle\nabla\cdot\bm{E}=\frac{\partial\bm{E}}{\partial x}=-4\pi e(n_i-n_e)
+  \end{cases}
+ \end{equation}
+ 考虑本体坐标$n_e=n_0+n_1, v_e=v_0+v_1, E_e=E_0+E_1$, 由于近似条件，固定系为均匀等离子体，从而对于一维运动有方程组
+ \begin{equation}
+  \begin{cases}
+   \displaystyle\frac{\partial v_1}{\partial t}=-eE_1                  \\
+   \displaystyle\frac{\partial n_1}{\partial t}+{n_0\nabla\cdot v_1}=0 \\
+   \frac{\partial E_1}{\partial x}=-4\pi en_1
+  \end{cases}
+ \end{equation}
+ 可解有周期运动
+ \begin{equation}
+  \begin{cases}
+   v_1=v_1e^{i(kx-\omega t)} \\
+   n_1=n_1e^{i(kx-\omega t)} \\
+   E_1=E_1e^{i(kx-\omega t)}
+  \end{cases}
+ \end{equation}
+ 其中
+ \begin{equation}
+  \omega_\phi=(\frac{4\pi n_0 e^2}{m})^{1/2}
+ \end{equation}
+ 如果舍去近似(3), 考虑电子热运动，运动方程修正为
+ \begin{equation}
+  mn_e[\frac{\partial\bm{v}_e}{\partial t}+(\bm{v}_e\cdot\nabla)\bm{v}_e]=-en_e\bm{E}-3KT_e\nabla n_1
+ \end{equation}
+ 可解有
+ \begin{flalign}
+  &&&\omega^2=\omega_\phi^2+k^2\frac{3KT_e}{m}&\\
+  &&&v_g=\frac{d\omega}{dk}=\frac{3KT_e}{mv_\phi}&
+ \end{flalign}
+\end{flushleft}
+\subsubsection{离子波}
+\begin{flushleft}
+ 对于重离子体，有流体运动方程
+ \begin{equation}
+  Mn[\frac{\partial\bm{v_i}}{\partial
+   t}+(\bm{v_i}\cdot\nabla)\bm{v_i}]=-en\nabla\phi-\gamma_iKT_i\nabla n
+ \end{equation}
+ 从而在一维情况下，可以解得
+ \begin{equation}
+  \omega^2=k^2(\frac{KT_e}{M}+\frac{\gamma_iKT_i}{M})
+ \end{equation}
+\end{flushleft}
+
+\subsection{等离子体电磁波}
+\begin{flushleft}
+ 未完 \cite{DLZWLDL}
+\end{flushleft}
+
+\bibliographystyle{unsrt}
+\bibliography{Reference}
+\end{document}
